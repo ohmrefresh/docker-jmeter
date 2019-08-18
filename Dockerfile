@@ -28,9 +28,14 @@ RUN    apk update \
 
 COPY lib/*  ${JMETER_HOME}/lib/
 
+## server.rmi.ssl.disable=true
+COPY config/user.properties  /opt/apache-jmeter-5.1.1/bin/user.properties
+
 # Set global PATH such that "jmeter" command is found
 ENV PATH $PATH:$JMETER_BIN
 
 WORKDIR	${JMETER_HOME}
+
+
 
 # ENTRYPOINT ["/entrypoint.sh"]
