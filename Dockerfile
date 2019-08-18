@@ -27,15 +27,10 @@ RUN    apk update \
 	&& rm -rf /tmp/dependencies
 
 COPY lib/*  ${JMETER_HOME}/lib/
-# TODO: plugins (later)
-# && unzip -oq "/tmp/dependencies/JMeterPlugins-*.zip" -d $JMETER_HOME
 
 # Set global PATH such that "jmeter" command is found
 ENV PATH $PATH:$JMETER_BIN
 
-# Entrypoint has same signature as "jmeter" command
-COPY entrypoint.sh /
-
 WORKDIR	${JMETER_HOME}
 
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]
