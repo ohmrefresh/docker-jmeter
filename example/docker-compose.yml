@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  master:
+    build: ./jmeter-master
+    hostname: master
+    tty: true
+    networks:
+      - jmeter
+  slave:
+    build: ./jmeter-slave
+    tty: true
+    networks:
+      - jmeter
+  
+networks:
+  jmeter:
+    driver: bridge
