@@ -5,7 +5,7 @@ EXPOSE 1099 50000
 #HEAP="-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m"
 #JVM_ARGS=""
 
-ENTRYPOINT export HEAP="-Xms512m -Xmx512m"&&$JMETER_HOME/bin/jmeter-server \
+ENTRYPOINT $JMETER_HOME/bin/jmeter-server \
                         -Dserver.rmi.localport=50000 \
                         -Dserver_port=1099 \
                         -Dserver.rmi.ssl.disable=true

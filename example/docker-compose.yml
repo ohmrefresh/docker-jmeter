@@ -6,11 +6,22 @@ services:
     tty: true
     networks:
       - jmeter
+    volumes:
+      - ./jmx_scripts:/home
   slave:
     build: ./jmeter-slave
     tty: true
     networks:
       - jmeter
+    volumes:
+      - ./jmx_scripts:/home
+  slave2:
+    build: ./jmeter-slave
+    tty: true
+    networks:
+      - jmeter
+    volumes:
+      - ./jmx_scripts:/home
   
 networks:
   jmeter:
